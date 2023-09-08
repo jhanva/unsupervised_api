@@ -1,6 +1,6 @@
 import os
-import uvicorn
 
+import uvicorn
 from fastapi import FastAPI
 
 app = FastAPI(title='MNIST', version='0.1.0')
@@ -17,8 +17,5 @@ for root, dirs, files in os.walk(os.path.join('routers')):
                 app.include_router(router)
 
 
-@app.get('/')
-def home():
-    return 'hola mundo'
-
-
+if __name__ == "__main__":
+    uvicorn.run(app)
